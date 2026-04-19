@@ -12,6 +12,7 @@
   "dependencies": {
     "dotenv": "^17.4.2",
     "http": "^0.0.1-security",
-    "mysql2": "^3.22.1"
+    "mysql2": "^3.22.1",
+    "redis": "^5.12.1"
   }
 }
