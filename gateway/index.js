@@ -25,7 +25,7 @@ if(!allowed) {
     const duration = Date.now() - start;
 
     //log the blocked request
-    await logger({method : req.method ,  path : req.path , status : 429 , ip,blocked : true, duration})
+    await logger({method : req.method ,  path : req.url , status : 429 , ip,blocked : true, duration})
     return
 }
 
@@ -33,7 +33,7 @@ if(!allowed) {
 
 proxy(req , res , async (statusCode) => {
     const duration = Date.now() - start;
-    await logger({method : req.method ,  path : req.path , status : statusCode , ip,blocked : false, duration})   
+    await logger({method : req.method ,  path : req.url , status : statusCode , ip,blocked : false, duration})   
 
 })
 

@@ -1,6 +1,6 @@
 const pool = require("../db");
 
-module.exports = async function logger({ method, path, status, ip, blocked }) {
+module.exports = async function logger({ method, path, status, ip, blocked, duration, blockReason = null }) {
   try {
 
     await pool.execute(
