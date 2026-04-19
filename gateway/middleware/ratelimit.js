@@ -1,7 +1,7 @@
 const redis = require('../redis');
 
 const WINDOW_MS = 60 * 1000;  // 60 seconds
-const MAX_REQUESTS = 100     // per window
+const MAX_REQUESTS = 100;     // per window
 
 module.exports = async function rateLimit(ip) {
   const now = Date.now();
