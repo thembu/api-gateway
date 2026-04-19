@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/stats', statsRoute);
+app.use('/api/stats', statsRoute);
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
