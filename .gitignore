@@ -1,0 +1,13 @@
+# Environment files
+.env
+.env.*
+
+# Dependencies
+node_modules/
+
+# Scraper output
+scraper/data.json
+scraper/data.html
+
+# Logs
+*.log
