@@ -2,11 +2,13 @@ const http = require('http');
 
 //sfowardig to our projects express api
 const UPSTREAM ={
-    host : 'localhost',
-    port : 3000
+   default : {host : 'localhost',port : 3000},
+   screener : {host : 'localhost',port : 3003},
 }
 
 module.exports = function proxy(req, res , onFinish) {
+
+ const UPSTREAM = req.url.startsWith('/api/screener') ? UPSTREAM.screener : UPSTREAM.default;
 
 
 const options = {
