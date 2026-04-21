@@ -8,17 +8,17 @@ const UPSTREAM ={
 
 module.exports = function proxy(req, res , onFinish) {
 
- const UPSTREAM = req.url.startsWith('/api/screener') ? UPSTREAM.screener : UPSTREAM.default;
+ const upstream = req.url.startsWith('/api/screener') ? UPSTREAM.screener : UPSTREAM.default;
 
 
 const options = {
-  host: UPSTREAM.host, //where to forward the request
-  port: UPSTREAM.port, //which port to forward the request
+  host: upstream.host, //where to forward the request
+  port: upstream.port, //which port to forward the request
   path: req.url, //the path of the request e.g /api/jobs
   method: req.method, //the method of the request e.g GET, POST, PUT, DELETE
   headers: {
     ...req.headers, //forward the original headers to the microservice
-    host: `${UPSTREAM.host}:${UPSTREAM.port}` //set the host header to the microservice's host and port
+    host: `${upstream.host}:${upstream.port}` //set the host header to the microservice's host and port
   }
 };
 
